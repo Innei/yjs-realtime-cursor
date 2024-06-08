@@ -11,7 +11,10 @@ const key = 'cursor'
 // })
 
 const webrtcProvider = new WebrtcProvider(key, ydoc, {
-  signaling: ['ws://localhost:1234'],
+  signaling: [
+    // 'ws://localhost:1234',
+    'wss://yjs-realtime-cursor-production.up.railway.app',
+  ],
 })
 
 const awareness = webrtcProvider.awareness
