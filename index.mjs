@@ -16,6 +16,9 @@ const webrtcProvider = new WebrtcProvider(key, ydoc, {
     'wss://yjs-webrtc-signaling-server-production.up.railway.app',
     'wss://yjs-rtc.zeabur.app',
   ],
+  peerOpts: {
+    trickle: false,
+  },
 })
 
 const awareness = webrtcProvider.awareness
@@ -81,6 +84,7 @@ yColorMap.set(userId.toString(), seedColor)
 const user2$cursors = new Map()
 
 yPosMap.observe((event) => {
+  console.log(yPosMap.size)
   const userIds = event.keysChanged.values()
   for (const userId of userIds) {
     const pos = yPosMap.get(userId)
