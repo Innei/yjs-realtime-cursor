@@ -55,16 +55,16 @@ awareness.on('change', (changes) => {
     const userId = add.toString()
     const data = idDataMap[userId]
     if (!data) continue
-    yPosMap.set(userId, [data.xp, data.yp])
     yColorMap.set(userId, data.color)
+    yPosMap.set(userId, [data.xp, data.yp])
 
     console.log('add/update', userId)
   }
 
   for (const remove of changes.removed) {
     const userId = remove.toString()
-    yPosMap.delete(userId)
     yColorMap.delete(userId)
+    yPosMap.delete(userId)
 
     const $cursor = user2$cursors.get(userId)
 
